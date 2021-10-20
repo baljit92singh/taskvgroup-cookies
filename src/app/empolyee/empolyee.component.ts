@@ -47,9 +47,8 @@ export class EmpolyeeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result && result.event == 'Add') {
-        // this.addEmployee(result.data);
-        console.log(result.data)
         this.empolyeeList.push(result.data)
+        this.getEmployeeList()
       } else if (result && result.event == 'Update') {
         this.updateEmployee(result.data);
       } else if (result && result.event == 'Delete') {
@@ -58,17 +57,10 @@ export class EmpolyeeComponent implements OnInit {
     });
   }
 
-  // addEmployee(data: any) {
-  //   console.log(data);
-  // }
-
   updateEmployee(data: any) {
-    console.log(data);
-    // let updateItem = this.empolyeeList.find(this.findIndexToUpdate, data.id);
-    // let index = this.empolyeeList.indexOf(updateItem);
-    // this.empolyeeList[index] = data;
     this.commonServie.updateEmployee({ id: data.id, item: data }).subscribe(res => {
       if (res) {
+        this.getEmployeeList()
         this.commonServie.openSnackBar(res.message, "Dismiss")
       } else {
         this.commonServie.openSnackBar(res.message, "Dismiss")
@@ -76,14 +68,11 @@ export class EmpolyeeComponent implements OnInit {
     })
   }
 
-  // findIndexToUpdate(newItem: any) {
-  //   return newItem.id === this;
-  // }
-
   deleteEmployee(data: any) {
-    console.log(data);
-    this.commonServie.deleteEmployee(data.id).subscribe(res => {
+    // console.log(data);
+    this.commonServie.deleteEmployee(data).subscribe(res => {
       if (res) {
+        this.getEmployeeList()
         this.commonServie.openSnackBar(res.message, "Dismiss")
       } else {
         this.commonServie.openSnackBar(res.message, "Dismiss")
