@@ -19,10 +19,16 @@
       <mat-form-field class="example-full-width">
         <input matInput type="password" id="signup_password" placeholder="Password" autocomplete="new-password"
           formControlName="password" required>
+          <mat-error *ngIf="signupForm.hasError('required', 'password')">
+            Please enter your new password
+          </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput type="password" id="confirm_password" placeholder="Confirm Password" autocomplete="new-password"
+        <input matInput type="password" id="confirm_password" placeholder="Confirm Password" [errorStateMatcher]="matcher" autocomplete="new-password"
           formControlName="confirm_password" required>
+          <mat-error *ngIf="signupForm.hasError('notSame')">
+            Passwords do not match
+          </mat-error>  
       </mat-form-field>
 
       <div class="actions" >

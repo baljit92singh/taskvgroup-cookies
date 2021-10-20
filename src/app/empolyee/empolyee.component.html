@@ -9,7 +9,7 @@
             <button mat-flat-button (click)="openDialog('Add',{})" type="submit">Create</button>
         </div>
         <br>
-        <table>
+        <table *ngIf="empolyeeList && empolyeeList.length>0">
             <tr>
                 <th>Employee id</th>
                 <th>Employee Name</th>
@@ -28,5 +28,8 @@
                 </td>
             </tr>
         </table>
+        <div *ngIf="empolyeeList && empolyeeList.length === 0">
+            <p>Not Data Yet!</p>
+        </div>
     </mat-card>
 </div>

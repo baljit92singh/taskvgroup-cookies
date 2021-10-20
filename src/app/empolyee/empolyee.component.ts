@@ -14,7 +14,7 @@ export class EmpolyeeComponent implements OnInit {
   empolyeeList: Array<any> = [];
   constructor(private router: Router,
     private cookies: CookieService,
-    private commonServie: CommonService,
+    public commonServie: CommonService,
     public dialog: MatDialog
   ) { }
 

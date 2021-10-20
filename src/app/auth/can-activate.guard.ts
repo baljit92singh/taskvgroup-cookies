@@ -12,12 +12,11 @@ export class CanActivateGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const email = this.cookies.get('email');
-    const password = this.cookies.get('password');
-    if (email != undefined && password != undefined) {
-      return true;
+    const password = this.cookies.get('password'); 
+    if (!email && !password) {
+      this.router.navigate(['/login']);
     }
-    this.router.navigate(['/login']);
-    return false;
+    return true;
 
   }
 
