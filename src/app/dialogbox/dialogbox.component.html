@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>{{action}} Employee</h1>
+<div mat-dialog-content>
+    <form [formGroup]="employeeForm" *ngIf="action === 'Add' || action === 'Update'">
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" id="employee_name" placeholder="Employee Name" autocomplete="new-password"
+                formControlName="employee_name" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="text" id="salary" placeholder="Salary" autocomplete="new-password"
+                formControlName="salary" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="number" id="age" placeholder="Age" autocomplete="new-password" formControlName="age"
+                required>
+        </mat-form-field>
+    </form>
+    <div *ngIf="action === 'Delete'">
+        Are you sure to delete?
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

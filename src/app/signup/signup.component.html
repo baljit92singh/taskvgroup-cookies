@@ -1,0 +1,39 @@
+<div style="padding:2rem">
+  <mat-card>
+    <form [formGroup]="signupForm">
+
+      <div style="text-align: center;">Signup Form</div>
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" id="first_name" placeholder="First Name" autocomplete="new-password"
+          formControlName="first_name" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" id="last_name" placeholder="Last Name" autocomplete="new-password"
+          formControlName="last_name" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="email" id="signup_email" placeholder="Email" autocomplete="new-password"
+          formControlName="email" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" id="signup_password" placeholder="Password" autocomplete="new-password"
+          formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" id="confirm_password" placeholder="Confirm Password" autocomplete="new-password"
+          formControlName="confirm_password" required>
+      </mat-form-field>
+
+      <div class="actions" >
+        <button mat-flat-button color="accent" type="submit" (click)="signup()" [disabled]="!signupForm.valid">Sign
+          up</button>
+        <div class="separator">
+          <span>OR</span>
+        </div>
+        <button mat-stroked-button routerLink="/login">Login</button>
+      </div>
+
+    </form>
+  </mat-card>
+</div>

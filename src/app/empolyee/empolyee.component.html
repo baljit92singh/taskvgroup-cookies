@@ -1,0 +1,32 @@
+<div style="padding:2rem">
+    <mat-card>
+        <div style="text-align: right;">
+            <button mat-flat-button color="primary" (click)="logout()" type="submit">Logout</button>
+        </div>
+        <div style="text-align: center;"><b> Dashboard</b></div>
+        <br>
+        <div style="text-align: left;">
+            <button mat-flat-button (click)="openDialog('Add',{})" type="submit">Create</button>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>Employee id</th>
+                <th>Employee Name</th>
+                <th>Salary</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let item of empolyeeList">
+                <td>{{item.id}}</td>
+                <td>{{item.employee_name}}</td>
+                <td>{{item.employee_salary}}</td>
+                <td>{{item.employee_age}}</td>
+                <td>
+                    <button mat-flat-button (click)="openDialog('Update',item)" type="submit">Edit</button> |
+                    <button mat-flat-button (click)="openDialog('Delete',item)"  type="submit">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </mat-card>
+</div>

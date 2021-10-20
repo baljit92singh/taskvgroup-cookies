@@ -1,0 +1,28 @@
+<div style="padding:2rem">
+    <mat-card>
+        <form [formGroup]="loginForm">
+
+            <div style="text-align: center;">Login Form</div>
+
+            <mat-form-field class="example-full-width">
+                <input matInput type="email" id="email" placeholder="Email" autocomplete="off" formControlName="email"
+                    required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput type="password" id="password" placeholder="Password" autocomplete="off"
+                    formControlName="password" required>
+            </mat-form-field>
+
+            <div class="actions">
+                <button mat-flat-button color="primary" type="submit" (click)="login()"
+                    [disabled]="!loginForm.valid">Login</button>
+                <div class="separator">
+                    <span>OR</span>
+                </div>
+                <button mat-stroked-button type="button" routerLink="/signup">Sign up</button>
+            </div>
+
+        </form>
+    </mat-card>
+</div>
